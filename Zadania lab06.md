@@ -53,7 +53,7 @@ SELECT DISTINCT rodzaj FROM kreatura;
 SELECT concat(nazwa, "to id=", idKreatury) form kreatura;
 
 ### 3) Wyświetl zasoby z całkowitą wagą danego zasobu (ilosc*waga) dla zasobow pozyskanych w latach 2000-2007:
-SELECT * FROM  kreatura ORDER BY dataUr DESC LIMIT 5;
+select nazwa, (ilosc*waga) as calkowitaWaga from zasob where year(dataPozyskania) between 2000 and 2007;
 
 # Zad 5:
 
