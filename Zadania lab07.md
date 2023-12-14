@@ -51,3 +51,9 @@ SELECT k2.idKreatury, concat(k2.nazwa, ' - ' ,k1.nazwa) AS nazwa, k1.idKreatury 
 SELECT k.rodzaj, avg(z.waga*e.ilosc) AS s_waga from kreatura k, ekwipunek e, zasob z WHERE k.rodzaj not in ('malpa', 'waz') GROUP BY k.rodzaj having e.ilosc < 30;
 
 SELECT k.rodzaj, avg(z.waga*e.ilosc) AS s_waga FROM kreatura k, ekwipunek e, zasob z WHERE k.idKreatury=e.idKreatury AND e.idZasobu=z.idZasobu GROUP BY k.rodzaj having s_waga < 30;
+
+### 2) Dla kazdego rodzaju kreatury wyswietlic nazwe, date urodzenia i rodzaj najmlodszej i najstarszej kreatury:
+SELECT rodzaj from kreatura GROUP BY rodzaj:
+
+SELECT n.najstarsza, n.najmlodsza FROM(SELECT rodzaj, min(dataUr), max(dataUr) FROM kreatura GROUP BY rodzaj) n INNER JOIN kreatura ON n.najstarsza=k.dataUr OR n.najmlodsza = k.dataUr;
+
