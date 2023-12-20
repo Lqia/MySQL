@@ -16,4 +16,10 @@ CREATE TABLE kreatura AS SELECT * FROM wikingowie.kreatura;
 
 SELECT nazwa FROM kreatura LEFT JOIN uczestnicy ON idKreatury = id_uczestnika WHERE id_uczestnika IS NULL;
 
-### 3)
+### 3) Do każdej wyprawy wypisać jej nazwę oraz sumę ilości ekwipnku jaka została zebrana pzez uczestnikow tej wyprawy:
+
+SELECT w.nazwa AS nazwa_wyprawy, sum(e.ilosc) AS niesione_rzeczy FROM kreatura k
+JOIN ekwipunek e ON k.idKreatury=e.idKreatury
+JOIN uczestnicy u ON k.idKreatury=u.id_uczestnika
+JOIN wyprawa w ON u.id_wyprawy=w.id_wyprawy
+GROUP BY w.nazwa;
