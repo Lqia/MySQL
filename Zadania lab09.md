@@ -50,3 +50,8 @@ delimiter ;
 ```
 
 ### 2) Napisz funkcję która będzie pobierała tekst i zwracała go z wielkich liter
+```SQL
+create function wielkie_litery (t text)
+  returns text
+  return upper(t);
+```
