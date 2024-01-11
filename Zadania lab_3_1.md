@@ -1,4 +1,4 @@
-# Zad 1
+# Zad 1 😽
 ### Wyświetl imię i nazwisko każdego pracownika i jego rok urodzenia:
 ```SQL
 SELECT imie, nazwisko, YEAR(data_urodzenia) FROM pracownik;
